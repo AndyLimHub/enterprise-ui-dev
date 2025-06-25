@@ -17,7 +17,11 @@ export class KanbanBoard {
     this.statuses.push(status);
   }
 
-  removeStatus(status: string) {
-    this.statuses.splice(this.statuses.indexOf(status));
+  async removeStatus(status: string) {
+    const index = this.statuses.indexOf(status);
+    if (index !== -1) {
+      this.statuses.splice(index, 1);
+    }
+    return this.statuses.length;
   }
 }
